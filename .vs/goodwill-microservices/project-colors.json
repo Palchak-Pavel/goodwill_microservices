@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e50276d2-1f06-40ac-b8c9-d432f37d01f4": {
+      "ProjectGuid": "e50276d2-1f06-40ac-b8c9-d432f37d01f4",
+      "DisplayName": "IncomePayments.API",
+      "ColorIndex": 0
+    },
+    "038ca418-8b67-4aae-aa83-040fc363cba3": {
+      "ProjectGuid": "038ca418-8b67-4aae-aa83-040fc363cba3",
+      "DisplayName": "Incomes.API",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Прочие файлы",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}
