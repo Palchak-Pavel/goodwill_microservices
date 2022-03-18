@@ -10,18 +10,18 @@ namespace Incomes.API.Mongodb.Data
             var client = new MongoClient(configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
             var database = client.GetDatabase(configuration.GetValue<string>("DatabaseSettings:DatabaseName"));
 
-            Income = database.GetCollection<Income>("Incomes");
-            AdditionalCost = database.GetCollection<AdditionalCost>("AdditionalCosts");
-            Product = database.GetCollection<Product>("Products");
-            Supplier = database.GetCollection<Supplier>("Suppliers");
+            Incomes = database.GetCollection<Income>("Incomes");
+            AdditionalCosts = database.GetCollection<AdditionalCost>("AdditionalCosts");
+            Products = database.GetCollection<Product>("Products");
+            Suppliers = database.GetCollection<Supplier>("Suppliers");
         }
-        public IMongoCollection<Income> Income { get; }
+        public IMongoCollection<Income> Incomes { get; }
 
-        public IMongoCollection<AdditionalCost> AdditionalCost { get; }
+        public IMongoCollection<AdditionalCost> AdditionalCosts { get; }
 
-        public IMongoCollection<Product> Product { get; }
+        public IMongoCollection<Product> Products { get; }
 
-        public IMongoCollection<Supplier> Supplier { get; }
+        public IMongoCollection<Supplier> Suppliers { get; }
 
     
     }

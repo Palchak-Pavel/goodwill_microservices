@@ -13,7 +13,7 @@ namespace Incomes.API.Dto
         public double? Margin { get; set; } = 1;
         public string IncomeState { get; set; } = "В дороге";
 
-        public Incomes.API.Mongodb.ValueObjects.AdditionalCost[]? AdditionalCosts { get; set; }
+        public Mongodb.ValueObjects.AdditionalCost[]? AdditionalCosts { get; set; }
 
     }
 }

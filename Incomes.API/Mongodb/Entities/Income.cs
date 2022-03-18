@@ -33,5 +33,5 @@ public class Income : EntityBase
     public double? Margin { get; set; }
     
     public IncomeLine[]? IncomeLines { get; set; }
-    public Incomes.API.Mongodb.ValueObjects.AdditionalCost[]? AdditionalCosts { get; set; }
+    public ValueObjects.AdditionalCost[]? AdditionalCosts { get; set; }
 }

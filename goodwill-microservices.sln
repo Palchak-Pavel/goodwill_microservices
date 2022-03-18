@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomePayments.API", "IncomePayments.API\IncomePayments.API.csproj", "{E50276D2-1F06-40AC-B8C9-D432F37D01F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncomePayments.API", "IncomePayments.API\IncomePayments.API.csproj", "{E50276D2-1F06-40AC-B8C9-D432F37D01F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Incomes.API", "Incomes.API\Incomes.API.csproj", "{038CA418-8B67-4AAE-AA83-040FC363CBA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Incomes.API", "Incomes.API\Incomes.API.csproj", "{038CA418-8B67-4AAE-AA83-040FC363CBA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

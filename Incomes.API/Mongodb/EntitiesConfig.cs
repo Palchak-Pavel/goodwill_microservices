@@ -7,7 +7,7 @@ public class EntitiesConfig
 {
 	public static void Config()
 	{
-        BsonClassMap.RegisterClassMap<Income>(x =>
+        BsonClassMap.RegisterClassMap<Mongodb.Entities.Income>(x =>
         {
             x.AutoMap();
             x.SetIgnoreExtraElements(true);

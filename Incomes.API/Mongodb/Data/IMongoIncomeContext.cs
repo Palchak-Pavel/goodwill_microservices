@@ -5,9 +5,9 @@ namespace Incomes.API.Mongodb.Data;
 
 public interface IMongoIncomeContext
 {
-    IMongoCollection<AdditionalCost> AdditionalCost { get; }
-    IMongoCollection<Income> Income { get; }
-    IMongoCollection<Product> Product { get; }
-    IMongoCollection<Supplier> Supplier { get; }
+    IMongoCollection<AdditionalCost> AdditionalCosts { get; }
+    IMongoCollection<Income> Incomes { get; }
+    IMongoCollection<Product> Products { get; }
+    IMongoCollection<Supplier> Suppliers { get; }
 
 }

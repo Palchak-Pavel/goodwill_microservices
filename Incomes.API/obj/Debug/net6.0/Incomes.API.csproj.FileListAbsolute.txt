@@ -24,7 +24,6 @@ C:\git\goodwill-microservices\Incomes.API\obj\Debug\net6.0\Incomes.API.dll
 C:\git\goodwill-microservices\Incomes.API\obj\Debug\net6.0\ref\Incomes.API.dll
 C:\git\goodwill-microservices\Incomes.API\obj\Debug\net6.0\Incomes.API.pdb
 C:\git\goodwill-microservices\Incomes.API\obj\Debug\net6.0\Incomes.API.genruntimeconfig.cache
-C:\git\goodwill-microservices\Incomes.API\obj\Debug\net6.0\Incomes.API.csproj.AssemblyReference.cache
 C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\DnsClient.dll
 C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\FluentValidation.dll
 C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\MongoDB.Bson.dll
@@ -46,3 +45,4 @@ C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\Microsoft.EntityFrame
 C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\git\goodwill-microservices\Incomes.API\obj\Debug\net6.0\Incomes.API.csproj.AssemblyReference.cache

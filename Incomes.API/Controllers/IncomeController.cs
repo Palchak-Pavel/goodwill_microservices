@@ -10,9 +10,9 @@ namespace Incomes.API.Controllers;
 [ApiController]
 [Route("incomes")]
 
- public class IncomeController : ControllerBase
- {
-    private  IMongoIncomeContext _context;
+public class IncomeController : ControllerBase
+{
+    private IMongoIncomeContext _context;
 
     public IncomeController(IMongoIncomeContext context)
     {
@@ -24,8 +24,8 @@ namespace Incomes.API.Controllers;
     [ProducesResponseType(typeof(IEnumerable<Income>), (int)HttpStatusCode.OK)]
     public async Task<ActionResult<IEnumerable<IncomeDto>>> GetIncomes()
     {
-        var incomes = await _context.Income.Find(x => true).ToListAsync();
- 
+        var incomes = await _context.Incomes.Find(x => true).ToListAsync();
+
 
         //// Созадли список
         //List<IncomeDto> incomesDtosList = new List<IncomeDto>();
@@ -66,46 +66,94 @@ namespace Incomes.API.Controllers;
         return Ok(incomesDtos);
     }
 
-  
-    [HttpGet ("{id}")]
+
+    [HttpGet("{id}")]
     [ProducesResponseType(typeof(IEnumerable<Income>), (int)HttpStatusCode.OK)]
     public async Task<ActionResult<Income>> GetId(string id)
     {
-        var income = await _context.Income.Find(x => x.Id == id).FirstOrDefaultAsync();
+        var income = await _context.Incomes.Find(x => x.Id == id).FirstOrDefaultAsync();
         if (income == null) return NotFound();
 
-        if(income.IncomeState == "В дороге")
+        if (income.IncomeState == "В дороге")
         {
-            var additionalCosts = await _context.AdditionalCost.Find(x => true).ToListAsync();
+            var additionalCosts = await _context.Incomes.Find(x => true).ToListAsync();
             income.AdditionalCosts = additionalCosts.Select(x => new Mongodb.ValueObjects.AdditionalCost(x.Id, 0)).ToArray();
         }
         return income;
     }
 
     [HttpPost]
-    public async Task<ActionResult<IEnumerable<CreateIncomeDto>>> CreateIncome([FromBody] CreateIncomeDto incomesDto)
+    [ProducesResponseType(typeof(IEnumerable<Income>), (int)HttpStatusCode.OK)]
+    public async Task<ActionResult<IEnumerable<IncomeDto>>> CreateIncome([FromBody] Income income)
     {
-        Income item = new()
+        income.Gtd = null;
+        income.СonfirmedAt = null;
+        income.Margin = 1;
+        income.IncomeState = "В дороге";
+        income.AdditionalCosts = Array.Empty<Mongodb.ValueObjects.AdditionalCost>();
+
+        await _context.Incomes.InsertOneAsync(income);
+        var result = new IncomeDto
         {
-            Gtd = incomesDto.Gtd,
-            СonfirmedAt = incomesDto.СonfirmedAt,
-            Margin = incomesDto.Margin,
-            IncomeState = incomesDto.IncomeState,
-            AdditionalCosts = incomesDto.AdditionalCosts,
-                                
+            Id = income.Id,
+            СonfirmedAt = income.СonfirmedAt,
+            CreatedAt = income.CreatedAt,
+            CurrencyType = income.CurrencyType,
+            IncomeName = income.IncomeName,
+            IncomeState = income.IncomeState,
+            SupplierName = income.SupplierName,
+            ProductQuantity = income.IncomeLines?.Sum(x => x.IncomeQuantity) ?? 0,
+            IncomeSum = income.IncomeLines?.Sum(x => x.IncomeSum) ?? 0
         };
-         return CreatedAtAction(nameof(CreateIncome), item);
+        return Ok(result);
     }
 
 
     [HttpPut]
     [ProducesResponseType(typeof(Income), (int)HttpStatusCode.OK)]
 
-    public async Task<bool> UpdateAdditionalCost([FromBody] Income additionalCost)
+    public async Task<bool> UpdateIncome([FromBody] Income income)
     {
-        var updateAdditionalCost = await _context.Income.
-            ReplaceOneAsync(filter: g => g.Id == additionalCost.Id, replacement: additionalCost);
+        var updateIncome = await _context.Incomes.
+            ReplaceOneAsync(filter: g => g.Id == income.Id, replacement: income);
 
-        return updateAdditionalCost.IsAcknowledged && updateAdditionalCost.ModifiedCount > 0;
+        return updateIncome.IsAcknowledged && updateIncome.ModifiedCount > 0;
+    }
+
+
+    /// Не меняет дату. Ставит дефолтную.
+    public class CompositeObject
+    {
+        public string Id { get; set; }
+        public DateTime ConfirmedAt { get; set; }
+    }
+
+    [HttpPut("change_date")]
+    [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+    public async Task<ActionResult> UpdateСonfirmedAt([FromBody] CompositeObject changeDate)
+    {
+        var filter = Builders<Income>.Filter.Eq(x => x.Id, changeDate.Id);
+        var income = await _context.Incomes.Find(filter).FirstOrDefaultAsync();
+        if (income == null) return NotFound();
+
+        income.СonfirmedAt = changeDate.ConfirmedAt;
+        var updateСonfirmedAt = await _context.Incomes.FindOneAndReplaceAsync(filter, income, null);
+
+        return NoContent();
+    }
+
+
+    [HttpDelete("{id}")]
+    [ProducesResponseType(typeof(Income), (int)HttpStatusCode.OK)]
+    public async Task<bool> DeleteIncome(string id)
+    {
+        FilterDefinition<Income> filter = Builders<Income>.Filter.Eq(p => p.Id, id);
+
+        DeleteResult deleteResult = await _context
+                                            .Incomes
+                                            .DeleteOneAsync(filter);
+
+        return deleteResult.IsAcknowledged
+            && deleteResult.DeletedCount > 0;
     }
 }
