@@ -42,7 +42,11 @@
           "dependencies": {
             "FluentValidation": {
               "target": "Package",
-              "version": "[10.3.6, )"
+              "version": "[10.4.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[10.4.0, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
@@ -50,11 +54,11 @@
             },
             "MongoDB.Driver": {
               "target": "Package",
-              "version": "[2.14.1, )"
+              "version": "[2.15.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.3.0, )"
             }
           },
           "imports": [

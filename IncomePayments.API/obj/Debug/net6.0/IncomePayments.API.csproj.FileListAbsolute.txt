@@ -46,3 +46,5 @@ C:\git\goodwill-microservices\IncomePayments.API\bin\Debug\net6.0\Microsoft.Enti
 C:\git\goodwill-microservices\IncomePayments.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\git\goodwill-microservices\IncomePayments.API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
 C:\git\goodwill-microservices\IncomePayments.API\obj\Debug\net6.0\IncomePayments.API.csproj.AssemblyReference.cache
+C:\git\goodwill-microservices\IncomePayments.API\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\git\goodwill-microservices\IncomePayments.API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
