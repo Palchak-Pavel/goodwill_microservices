@@ -6,9 +6,6 @@ public class ValidationAdditionalCost : AbstractValidator<Mongodb.Entities.Addit
 {
     public ValidationAdditionalCost()
     {
-        RuleFor(additionalCost => additionalCost.Id)
-            .NotNull()
-            .NotEmpty();
         RuleFor(additionalCost => additionalCost.Name)
             .NotNull()
             .NotEmpty();

@@ -46,6 +46,7 @@ public class AdditionalCostController : ControllerBase
         await _context.AdditionalCosts.InsertOneAsync(additionalCosts);
         var createAdditionalCost = new 
         {
+            Id = additionalCosts.Id,
             Name = additionalCosts.Name 
         };
         return Ok(createAdditionalCost);

@@ -3,6 +3,7 @@ using Incomes.API.Mongodb.Data;
 using Incomes.API.Mongodb.Entities;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
 
 namespace Incomes.API.Controllers;
@@ -121,15 +122,17 @@ public class IncomeController : ControllerBase
     }
 
 
-    /// Не меняет дату. Ставит дефолтную.
     public class CompositeObject
     {
         public string Id { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{dd.MM.yyyy}", ApplyFormatInEditMode = true)]
         public DateTime ConfirmedAt { get; set; }
     }
 
     [HttpPut("change_date")]
-    [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(CompositeObject), (int)HttpStatusCode.OK)]
     public async Task<ActionResult> UpdateСonfirmedAt([FromBody] CompositeObject changeDate)
     {
         var filter = Builders<Income>.Filter.Eq(x => x.Id, changeDate.Id);

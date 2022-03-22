@@ -8,12 +8,6 @@ public class ValidationIncome: AbstractValidator<Income>
 {
     public ValidationIncome()
     {
-        RuleFor(income => income.Id)
-            .NotNull()
-            .NotEmpty();
-        RuleFor(income => income.СonfirmedAt)
-            .NotNull()
-            .NotEmpty();
         RuleFor(income => income.CreatedAt)
             .NotNull()
             .NotEmpty();
