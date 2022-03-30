@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  incomes.api:
+    image: ${DOCKER_REGISTRY-}incomesapi
+    build:
+      context: Incomes.API/Incomes.API.csproj
+      dockerfile: Incomes.API\Dockerfile

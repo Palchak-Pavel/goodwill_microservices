@@ -48,3 +48,4 @@ C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\Microsoft.Extensions.
 C:\git\goodwill-microservices\Incomes.API\obj\Debug\net6.0\Incomes.API.csproj.AssemblyReference.cache
 C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\RabbitMQ.Client.dll
