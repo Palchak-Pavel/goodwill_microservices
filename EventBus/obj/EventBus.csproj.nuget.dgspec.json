@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\git\\goodwill-microservices\\IncomePayments.API\\IncomePayments.API.csproj": {}
+    "C:\\git\\goodwill-microservices\\EventBus\\EventBus.csproj": {}
   },
   "projects": {
-    "C:\\git\\goodwill-microservices\\IncomePayments.API\\IncomePayments.API.csproj": {
+    "C:\\git\\goodwill-microservices\\EventBus\\EventBus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\goodwill-microservices\\IncomePayments.API\\IncomePayments.API.csproj",
-        "projectName": "IncomePayments.API",
-        "projectPath": "C:\\git\\goodwill-microservices\\IncomePayments.API\\IncomePayments.API.csproj",
+        "projectUniqueName": "C:\\git\\goodwill-microservices\\EventBus\\EventBus.csproj",
+        "projectName": "EventBus",
+        "projectPath": "C:\\git\\goodwill-microservices\\EventBus\\EventBus.csproj",
         "packagesPath": "C:\\Users\\Павел Пальчак\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\goodwill-microservices\\IncomePayments.API\\obj\\",
+        "outputPath": "C:\\git\\goodwill-microservices\\EventBus\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Павел Пальчак\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,17 +44,9 @@
               "target": "Package",
               "version": "[3.1.0, )"
             },
-            "FluentValidation": {
-              "target": "Package",
-              "version": "[10.4.0, )"
-            },
-            "FluentValidation.AspNetCore": {
-              "target": "Package",
-              "version": "[10.4.0, )"
-            },
             "MassTransit": {
               "target": "Package",
-              "version": "[8.0.1, )"
+              "version": "[8.0.2-develop.421, )"
             },
             "MassTransit.AspNetCore": {
               "target": "Package",
@@ -62,15 +54,7 @@
             },
             "MassTransit.RabbitMQ": {
               "target": "Package",
-              "version": "[8.0.1, )"
-            },
-            "Microsoft.EntityFrameworkCore.InMemory": {
-              "target": "Package",
-              "version": "[6.0.3, )"
-            },
-            "MongoDB.Driver": {
-              "target": "Package",
-              "version": "[2.15.0, )"
+              "version": "[8.0.2-develop.421, )"
             },
             "RabbitMQ.Client": {
               "target": "Package",
@@ -78,7 +62,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.3.0, )"
+              "version": "[6.2.3, )"
             }
           },
           "imports": [

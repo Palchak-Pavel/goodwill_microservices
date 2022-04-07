@@ -159,4 +159,11 @@ public class IncomeController : ControllerBase
         return deleteResult.IsAcknowledged
             && deleteResult.DeletedCount > 0;
     }
+
+    /*[HttpPost]
+    [ProducesResponseType(typeof(IEnumerable<AdditionalCost>), (int) HttpStatusCode.OK)]
+    public async Task<IActionResult> ChekoutPost([FromBody] Income incomeChekout)
+    {
+        var income = await _context.Income(incomeChekout.Id);
+    }*/
 }

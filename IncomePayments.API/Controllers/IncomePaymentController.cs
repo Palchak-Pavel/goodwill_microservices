@@ -18,34 +18,35 @@ public class IncomePaymentController : ControllerBase
     }
 
     [HttpGet]
-    [ProducesResponseType(typeof(IEnumerable<IncomePayment>), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(IEnumerable<IncomePayment>), (int) HttpStatusCode.OK)]
     public async Task<IActionResult> GetIncomePayment(string name, int year)
     {
         var startDate = new DateTime(year, 1, 1);
         var endDate = new DateTime(year + 1, 1, 1);
-        
+
         FilterDefinition<IncomePayment> filter = Builders<IncomePayment>.Filter.Eq(p => p.SupplierName, name) &
                                                  Builders<IncomePayment>.Filter.Gte(p => p.CreatedAt, startDate) &
                                                  Builders<IncomePayment>.Filter.Lt(p => p.CreatedAt, endDate);
-        
+
         var payment = await _context
             .IncomePayment
             .Find(filter)
-            .ToListAsync();;
+            .ToListAsync();
+        ;
 
         return Ok(payment);
 
     }
-    
+
     [HttpPut]
-    [ProducesResponseType(typeof(IncomePayment), (int)HttpStatusCode.OK)]  
-   
+    [ProducesResponseType(typeof(IncomePayment), (int) HttpStatusCode.OK)]
+
     public async Task<bool> UpdateIncomePayment([FromBody] IncomePayment incomePayment)
     {
-        var updatePayment = await _context.IncomePayment.
-            ReplaceOneAsync(filter: g => g.Id == incomePayment.Id, replacement: incomePayment);
-       
+        var updatePayment =
+            await _context.IncomePayment.ReplaceOneAsync(filter: g => g.Id == incomePayment.Id,
+                replacement: incomePayment);
+
         return updatePayment.IsAcknowledged && updatePayment.ModifiedCount > 0;
     }
-
 }

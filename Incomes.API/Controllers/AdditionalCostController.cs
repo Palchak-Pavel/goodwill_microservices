@@ -65,8 +65,6 @@ public class AdditionalCostController : ControllerBase
         return deleteResult.IsAcknowledged
             && deleteResult.DeletedCount > 0;
     }
-
-
 }
 
 
