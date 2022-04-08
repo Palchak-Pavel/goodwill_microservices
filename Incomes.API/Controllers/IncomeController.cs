@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
+using EventBus.Messages.Events;
+using Incomes.API.Mongodb.ValueObjects;
+using MassTransit;
 
 namespace Incomes.API.Controllers;
 
@@ -13,40 +16,20 @@ namespace Incomes.API.Controllers;
 
 public class IncomeController : ControllerBase
 {
-    private IMongoIncomeContext _context;
+    private readonly IMongoIncomeContext _context;
+    private readonly IPublishEndpoint _publishEndpoint;
 
-    public IncomeController(IMongoIncomeContext context)
+    public IncomeController(IMongoIncomeContext context, IPublishEndpoint publishEndpoint)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
+        _publishEndpoint = publishEndpoint ?? throw new ArgumentNullException(nameof(publishEndpoint));
     }
-
 
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<Income>), (int)HttpStatusCode.OK)]
     public async Task<ActionResult<IEnumerable<IncomeDto>>> GetIncomes()
     {
         var incomes = await _context.Incomes.Find(x => true).ToListAsync();
-
-
-        //// Созадли список
-        //List<IncomeDto> incomesDtosList = new List<IncomeDto>();
-
-        //// Запускаем цикл по сущностям
-        //foreach(var i in incomes)
-        //{
-        //    // для каждой сущности делаем DTO
-        //    var incomeDto = new IncomeDto
-        //    {
-        //        Id = i.Id,
-        //        CreatedAt = i.CreatedAt,
-        //        // i.IncomeLines?.Sum - если IncomeLines не NULL, то суммировать IncomeQuantity
-        //        //  ?? 0 - если NULL, то сумма = 0
-        //        ProductQuantity = i.IncomeLines?.Sum(x => x.IncomeQuantity) ?? 0,
-        //        IncomeSum = i.IncomeLines?.Sum(x => x.IncomeSum) ?? 0
-        //    };
-        //    incomesDtosList.Add(incomeDto);
-        //}
-
         var incomesDtos = from i in incomes
                           select new IncomeDto
                           {
@@ -78,7 +61,7 @@ public class IncomeController : ControllerBase
         if (income.IncomeState == "В дороге")
         {
             var additionalCosts = await _context.Incomes.Find(x => true).ToListAsync();
-            income.AdditionalCosts = additionalCosts.Select(x => new Mongodb.ValueObjects.AdditionalCost(x.Id, 0)).ToArray();
+            income.AdditionalCosts = additionalCosts.Select(x => new IncomeAdditionalCost(x.Id, 0)).ToArray();
         }
         return income;
     }
@@ -91,9 +74,25 @@ public class IncomeController : ControllerBase
         income.СonfirmedAt = null;
         income.Margin = 1;
         income.IncomeState = "В дороге";
-        income.AdditionalCosts = Array.Empty<Mongodb.ValueObjects.AdditionalCost>();
+        income.AdditionalCosts = Array.Empty<IncomeAdditionalCost>();
 
         await _context.Incomes.InsertOneAsync(income);
+
+        var eventMessage = new IncomeCreateEvent
+        {
+            Id = income.Id,
+            СonfirmedAt = income.СonfirmedAt,
+            CreatedAt = income.CreatedAt,
+            CurrencyType = income.CurrencyType,
+            IncomeName = income.IncomeName,
+            IncomeState = income.IncomeState,
+            SupplierName = income.SupplierName,
+            InvoiceSum =  income.IncomeLines?.Sum(x => x.IncomeQuantity * x.PriceFob) ?? 0,
+            FactSum = income.IncomeLines?.Sum(x => x.IncomeQuantity * x.PriceFob) ?? 0,
+            SeaSum = 0
+        };
+        await _publishEndpoint.Publish(eventMessage);
+
         var result = new IncomeDto
         {
             Id = income.Id,
@@ -159,11 +158,4 @@ public class IncomeController : ControllerBase
         return deleteResult.IsAcknowledged
             && deleteResult.DeletedCount > 0;
     }
-
-    /*[HttpPost]
-    [ProducesResponseType(typeof(IEnumerable<AdditionalCost>), (int) HttpStatusCode.OK)]
-    public async Task<IActionResult> ChekoutPost([FromBody] Income incomeChekout)
-    {
-        var income = await _context.Income(incomeChekout.Id);
-    }*/
 }

@@ -12,7 +12,7 @@ public class IncomePayment : EntityBase
 {
     [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string? Id { get; set; }
+    public string Id { get; set; } = null!;
 
     public string? Сomment { get; set; }
 
@@ -23,15 +23,15 @@ public class IncomePayment : EntityBase
     [DataType(DataType.Date)]
     [DisplayFormat(DataFormatString = "{dd.MM.yyyy}", ApplyFormatInEditMode = true)]
     public DateTime? CreatedAt { get; set; }
-    public string? CurrencyType { get; set; }
-    public double? FactSum { get; set; }
-    public string? IncomeName { get; set; }
-    public string? IncomeState { get; set; }
-    public double? InvoiceSum { get; set; }
-    public double? SeaSum { get; set; }
+    public string CurrencyType { get; set; } = null!;
+    public decimal FactSum { get; set; }
+    public string IncomeName { get; set; } = null!;
+    public string IncomeState { get; set; } = null!;
+    public decimal InvoiceSum { get; set; }
+    public decimal SeaSum { get; set; }
 
     [BsonElement("SupplierName")]
-    public string? SupplierName { get; set; }
+    public string SupplierName { get; set; } = null!;
     public Payment[]? Payments { get; set; }
     public Penalty[]? Penalties { get; set; }
 }

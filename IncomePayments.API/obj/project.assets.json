@@ -823,6 +823,16 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "EventBus.Messages/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/EventBus.Messages.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EventBus.Messages.dll": {}
+        }
       }
     }
   },
@@ -2324,10 +2334,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "EventBus.Messages/1.0.0": {
+      "type": "project",
+      "path": "../EventBus.Messages/EventBus.Messages.csproj",
+      "msbuildProject": "../EventBus.Messages/EventBus.Messages.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "EventBus.Messages >= 1.0.0",
       "EventBus.RabbitMQ.Standard >= 3.1.0",
       "FluentValidation >= 10.4.0",
       "FluentValidation.AspNetCore >= 10.4.0",
@@ -2366,7 +2382,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\git\\goodwill-microservices\\EventBus.Messages\\EventBus.Messages.csproj": {
+              "projectPath": "C:\\git\\goodwill-microservices\\EventBus.Messages\\EventBus.Messages.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

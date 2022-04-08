@@ -49,3 +49,14 @@ C:\git\goodwill-microservices\Incomes.API\obj\Debug\net6.0\Incomes.API.csproj.As
 C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\RabbitMQ.Client.dll
+C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\EventBus.Base.Standard.dll
+C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\EventBus.RabbitMQ.Standard.dll
+C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\MassTransit.dll
+C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\MassTransit.Abstractions.dll
+C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
+C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\Polly.dll
+C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\System.Text.Json.dll
+C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\EventBus.Messages.dll
+C:\git\goodwill-microservices\Incomes.API\bin\Debug\net6.0\EventBus.Messages.pdb

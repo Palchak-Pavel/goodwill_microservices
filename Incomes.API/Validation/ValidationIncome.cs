@@ -28,7 +28,7 @@ public class ValidationIncome: AbstractValidator<Income>
         RuleForEach(income => income.IncomeLines).SetValidator(new ValidationIncomeLine());
     }
 
-    public class ValidationAdditionalCost : AbstractValidator<Incomes.API.Mongodb.ValueObjects.AdditionalCost>
+    public class ValidationAdditionalCost : AbstractValidator<IncomeAdditionalCost>
     {
         public ValidationAdditionalCost()
         {

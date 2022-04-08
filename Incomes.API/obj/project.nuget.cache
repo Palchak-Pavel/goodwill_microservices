@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "U2cPAyC0tEwZw5Yrl/MxdUdd4mOCjL3D8dWnSM7X/zRXioxz+Fl0/XzRXjgucsqigMCD3jQkiVZpSl00A0BXCQ==",
+  "dgSpecHash": "1xB7w2XACPAl9Ub7bOUg5BiV0wT+jnNWSFMWRMy2lMFkgo3I3XR2A5Qt6MDb3tsG9MCL2zHvWqr9EhHYacW9mA==",
   "success": true,
   "projectFilePath": "C:\\git\\goodwill-microservices\\Incomes.API\\Incomes.API.csproj",
   "expectedPackageFiles": [
@@ -12,8 +12,6 @@
     "C:\\Users\\Павел Пальчак\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.4.0\\fluentvalidation.dependencyinjectionextensions.10.4.0.nupkg.sha512",
     "C:\\Users\\Павел Пальчак\\.nuget\\packages\\masstransit\\8.0.1\\masstransit.8.0.1.nupkg.sha512",
     "C:\\Users\\Павел Пальчак\\.nuget\\packages\\masstransit.abstractions\\8.0.1\\masstransit.abstractions.8.0.1.nupkg.sha512",
-    "C:\\Users\\Павел Пальчак\\.nuget\\packages\\masstransit.aspnetcore\\7.3.1\\masstransit.aspnetcore.7.3.1.nupkg.sha512",
-    "C:\\Users\\Павел Пальчак\\.nuget\\packages\\masstransit.extensions.dependencyinjection\\7.3.1\\masstransit.extensions.dependencyinjection.7.3.1.nupkg.sha512",
     "C:\\Users\\Павел Пальчак\\.nuget\\packages\\masstransit.rabbitmq\\8.0.1\\masstransit.rabbitmq.8.0.1.nupkg.sha512",
     "C:\\Users\\Павел Пальчак\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\Павел Пальчак\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

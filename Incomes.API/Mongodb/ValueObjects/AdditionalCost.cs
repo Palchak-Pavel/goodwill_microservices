@@ -2,9 +2,9 @@
 
 namespace Incomes.API.Mongodb.ValueObjects;
 
-public class AdditionalCost : ValueObject
+public class IncomeAdditionalCost : ValueObject
 {
-    public AdditionalCost(string? name, double? price)
+    public IncomeAdditionalCost(string? name, double? price)
     {
         Name = name;
         Price = price;

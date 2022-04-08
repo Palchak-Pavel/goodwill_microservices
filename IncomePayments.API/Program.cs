@@ -2,12 +2,29 @@ using IncomePayments.API.Mongodb.Data;
 using FluentValidation;
 using IncomePayments.API.Mongodb;
 using System.Reflection;
+using EventBus.Messages.Common;
 using FluentValidation.AspNetCore;
+using IncomePayments.API.Consumers;
+using MassTransit;
 
 EntitiesConfig.Config();
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddMassTransit(confg =>
+{
+    confg.AddConsumer<IncomeCreateConsumer>();
+    confg.UsingRabbitMq((ctx, cfg) =>
+    {
+        cfg.Host("amqp://root:root@localhost:5672");
+        cfg.ReceiveEndpoint(EventBusConstants.IncomesQueue, c =>
+        {
+            c.ConfigureConsumer<IncomeCreateConsumer>(ctx);
+        });
+    });
+    
+});
 
 builder.Services.AddScoped<IMongoIncomePaymentContext, IncomePaymentContext>();
 builder.Services.AddControllers();

@@ -12,7 +12,7 @@ public class Income : EntityBase
 {
     [BsonId(IdGenerator = typeof(StringObjectIdGenerator))] 
     [BsonRepresentation(BsonType.ObjectId)]
-    public string Id { get; set; }
+    public string Id { get; set; } = null!;
     
     [DataType(DataType.Date)]
     [DisplayFormat(DataFormatString = "{dd.MM.yyyy}", ApplyFormatInEditMode = true)]
@@ -21,17 +21,13 @@ public class Income : EntityBase
     [DataType(DataType.Date)]
     [DisplayFormat(DataFormatString = "{dd.MM.yyyy}", ApplyFormatInEditMode = true)]
     public DateTime CreatedAt { get; set; }
-    
-    public string? CurrencyType { get; set; }
+    public string CurrencyType { get; set; } = null!;
     public string IncomeName { get; set; } = null!;
-    public string IncomeState { get; set; }
-
-    //[DisplayFormat(ConvertEmptyStringToNull = false)]
-    public string SupplierName { get; set; }
+    public string IncomeState { get; set; } = null!;
+    public string SupplierName { get; set; } = null!;
     public string? Gtd { get; set; }
-    
-    public double? Margin { get; set; }
+    public double Margin { get; set; }
     
     public IncomeLine[]? IncomeLines { get; set; }
-    public ValueObjects.AdditionalCost[]? AdditionalCosts { get; set; }
+    public IncomeAdditionalCost[]? AdditionalCosts { get; set; }
 }

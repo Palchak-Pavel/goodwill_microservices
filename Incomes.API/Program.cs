@@ -11,6 +11,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddScoped<IMongoIncomeContext, IncomeContext>();
 
+builder.Services.AddMassTransit(confg =>
+{
+    confg.UsingRabbitMq((ctx, cfg) =>
+    {
+        cfg.Host("amqp://root:root@localhost:5672");
+    });
+});
+
 builder.Services.AddControllers();
 
 builder.Services.AddFluentValidation();
@@ -20,13 +28,7 @@ builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-/*builder.Services.AddMassTransit(confg =>
-{
-    confg.UsingRabbitMq((ctx, cfg) =>
-    {
-        cfg.Host("amqp://root:root@localhost:5672");
-    });
-});*/
+
 
 var app = builder.Build();
 

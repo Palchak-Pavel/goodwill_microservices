@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Incomes.API.Mongodb.ValueObjects;
 
 namespace Incomes.API.Dto
 {
@@ -13,7 +14,7 @@ namespace Incomes.API.Dto
         public double? Margin { get; set; } = 1;
         public string IncomeState { get; set; } = "В дороге";
 
-        public Mongodb.ValueObjects.AdditionalCost[]? AdditionalCosts { get; set; }
+        public IncomeAdditionalCost[]? AdditionalCosts { get; set; }
 
     }
 }

@@ -1,0 +1,12 @@
+C:\git\goodwill-microservices\EventBus.Messages\bin\Debug\net6.0\EventBus.Messages.deps.json
+C:\git\goodwill-microservices\EventBus.Messages\bin\Debug\net6.0\EventBus.Messages.dll
+C:\git\goodwill-microservices\EventBus.Messages\bin\Debug\net6.0\ref\EventBus.Messages.dll
+C:\git\goodwill-microservices\EventBus.Messages\bin\Debug\net6.0\EventBus.Messages.pdb
+C:\git\goodwill-microservices\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.csproj.AssemblyReference.cache
+C:\git\goodwill-microservices\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.GeneratedMSBuildEditorConfig.editorconfig
+C:\git\goodwill-microservices\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.AssemblyInfoInputs.cache
+C:\git\goodwill-microservices\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.AssemblyInfo.cs
+C:\git\goodwill-microservices\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.csproj.CoreCompileInputs.cache
+C:\git\goodwill-microservices\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.dll
+C:\git\goodwill-microservices\EventBus.Messages\obj\Debug\net6.0\ref\EventBus.Messages.dll
+C:\git\goodwill-microservices\EventBus.Messages\obj\Debug\net6.0\EventBus.Messages.pdb
