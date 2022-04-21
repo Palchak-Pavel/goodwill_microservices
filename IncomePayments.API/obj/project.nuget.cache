@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "QU0egdH9k0PiDLvT6vZTDjDw3gbPwLRYqRNtDlcd/PayDqiolPPhUrph1GRue8YuyeE1vDFIt+vU6G/DaIwVwg==",
+  "dgSpecHash": "ZoT5c7DlwDiBL30NfKCt3xoAaTmD8cpsr23ZwtcwtxM2I0AirnDwNhuonfNvyVvyjAANW0XvQW6tYWLSITSV6g==",
   "success": true,
-  "projectFilePath": "C:\\git\\goodwill-microservices\\IncomePayments.API\\IncomePayments.API.csproj",
+  "projectFilePath": "C:\\git\\goodwill_microservices\\IncomePayments.API\\IncomePayments.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Павел Пальчак\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\Павел Пальчак\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Павел Пальчак\\.nuget\\packages\\dnsclient\\1.6.0\\dnsclient.1.6.0.nupkg.sha512",
     "C:\\Users\\Павел Пальчак\\.nuget\\packages\\eventbus.base.standard\\1.0.2\\eventbus.base.standard.1.0.2.nupkg.sha512",
     "C:\\Users\\Павел Пальчак\\.nuget\\packages\\eventbus.rabbitmq.standard\\3.1.0\\eventbus.rabbitmq.standard.3.1.0.nupkg.sha512",

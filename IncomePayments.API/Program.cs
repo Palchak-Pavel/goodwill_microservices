@@ -5,6 +5,7 @@ using System.Reflection;
 using EventBus.Messages.Common;
 using FluentValidation.AspNetCore;
 using IncomePayments.API.Consumers;
+using IncomePayments.API.Mapper;
 using MassTransit;
 
 EntitiesConfig.Config();
@@ -26,6 +27,7 @@ builder.Services.AddMassTransit(confg =>
     
 });
 
+builder.Services.AddAutoMapper(typeof(ApiMappingProfile));
 builder.Services.AddScoped<IMongoIncomePaymentContext, IncomePaymentContext>();
 builder.Services.AddControllers();
 

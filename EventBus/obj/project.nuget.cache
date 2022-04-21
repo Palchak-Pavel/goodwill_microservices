@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zy6Tan3aTnqX2gmXUAz+0jPHqiMuwQedbb4pLQrwlJoHxRiU7Z/tLrA2ceTimOw7DivmBx0/ZK4jTySI2pO1yg==",
+  "dgSpecHash": "px/5yzYn8lo6mTQW028AacJhIy3P3Zzjyun+syieRbzTEae/lPIn978Q/pSUYvbyHkboHpz+Jl3zRKHLYAlChA==",
   "success": true,
-  "projectFilePath": "C:\\git\\goodwill-microservices\\EventBus\\EventBus.csproj",
+  "projectFilePath": "C:\\git\\goodwill_microservices\\EventBus\\EventBus.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Павел Пальчак\\.nuget\\packages\\eventbus.base.standard\\1.0.2\\eventbus.base.standard.1.0.2.nupkg.sha512",
     "C:\\Users\\Павел Пальчак\\.nuget\\packages\\eventbus.rabbitmq.standard\\3.1.0\\eventbus.rabbitmq.standard.3.1.0.nupkg.sha512",

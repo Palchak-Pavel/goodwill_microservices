@@ -2,6 +2,31 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "AutoMapper/11.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {}
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/11.0.0": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "11.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "DnsClient/1.6.0": {
         "type": "package",
         "dependencies": {
@@ -837,6 +862,35 @@
     }
   },
   "libraries": {
+    "AutoMapper/11.0.1": {
+      "sha512": "WIadGC1pIwbnyTubvI577p3F++Bsj9q2Q3OaAc1I0QS+JhupN1xkdrPBhI9bPIeg63zM81tZplUNYkqU1HE5jQ==",
+      "type": "package",
+      "path": "automapper/11.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.11.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.dll",
+        "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/11.0.0": {
+      "sha512": "0asw5WxdCFh2OTi9Gv+oKyH9SzxwYQSnO8TV5Dd0GggovILzJW4UimP26JAcxc3yB5NnC5urooZ1BBs8ElpiBw==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/11.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
     "DnsClient/1.6.0": {
       "sha512": "kVd3IxAs5EQZSKTQhMUaJmuOQ1n2VWKExatdqNszsxxKzTB+Toaxx3M1DsN3yKfHloMXPmt6fgfcOqRwKheoUQ==",
       "type": "package",
@@ -2343,6 +2397,8 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "AutoMapper >= 11.0.1",
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "EventBus.Messages >= 1.0.0",
       "EventBus.RabbitMQ.Standard >= 3.1.0",
       "FluentValidation >= 10.4.0",
@@ -2362,11 +2418,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\git\\goodwill-microservices\\IncomePayments.API\\IncomePayments.API.csproj",
+      "projectUniqueName": "C:\\git\\goodwill_microservices\\IncomePayments.API\\IncomePayments.API.csproj",
       "projectName": "IncomePayments.API",
-      "projectPath": "C:\\git\\goodwill-microservices\\IncomePayments.API\\IncomePayments.API.csproj",
+      "projectPath": "C:\\git\\goodwill_microservices\\IncomePayments.API\\IncomePayments.API.csproj",
       "packagesPath": "C:\\Users\\Павел Пальчак\\.nuget\\packages\\",
-      "outputPath": "C:\\git\\goodwill-microservices\\IncomePayments.API\\obj\\",
+      "outputPath": "C:\\git\\goodwill_microservices\\IncomePayments.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Павел Пальчак\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2383,8 +2439,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\git\\goodwill-microservices\\EventBus.Messages\\EventBus.Messages.csproj": {
-              "projectPath": "C:\\git\\goodwill-microservices\\EventBus.Messages\\EventBus.Messages.csproj"
+            "C:\\git\\goodwill_microservices\\EventBus.Messages\\EventBus.Messages.csproj": {
+              "projectPath": "C:\\git\\goodwill_microservices\\EventBus.Messages\\EventBus.Messages.csproj"
             }
           }
         }
@@ -2399,6 +2455,14 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "AutoMapper": {
+            "target": "Package",
+            "version": "[11.0.1, )"
+          },
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[11.0.0, )"
+          },
           "EventBus.RabbitMQ.Standard": {
             "target": "Package",
             "version": "[3.1.0, )"

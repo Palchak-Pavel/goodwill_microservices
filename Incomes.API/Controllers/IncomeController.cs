@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
+using AutoMapper;
 using EventBus.Messages.Events;
+using Incomes.API.Mapper;
 using Incomes.API.Mongodb.ValueObjects;
 using MassTransit;
 
@@ -18,11 +20,13 @@ public class IncomeController : ControllerBase
 {
     private readonly IMongoIncomeContext _context;
     private readonly IPublishEndpoint _publishEndpoint;
+    private readonly IMapper _mapper;
 
-    public IncomeController(IMongoIncomeContext context, IPublishEndpoint publishEndpoint)
+    public IncomeController(IMongoIncomeContext context, IPublishEndpoint publishEndpoint, IMapper mapper)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
         _publishEndpoint = publishEndpoint ?? throw new ArgumentNullException(nameof(publishEndpoint));
+        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
     [HttpGet]
@@ -30,24 +34,11 @@ public class IncomeController : ControllerBase
     public async Task<ActionResult<IEnumerable<IncomeDto>>> GetIncomes()
     {
         var incomes = await _context.Incomes.Find(x => true).ToListAsync();
-        var incomesDtos = from i in incomes
-                          select new IncomeDto
-                          {
-                              Id = i.Id,
-                              CreatedAt = i.CreatedAt,
-                              СonfirmedAt = i.СonfirmedAt,
-                              CurrencyType = i.CurrencyType,
-                              IncomeName = i.IncomeName,
-                              IncomeState = i.IncomeState,
-                              SupplierName = i.SupplierName,
-                              // i.IncomeLines?.Sum - если IncomeLines не NULL, то суммировать IncomeQuantity
-                              //  ?? 0 - если NULL, то сумма = 0
-                              ProductQuantity = i.IncomeLines?.Sum(x => x.IncomeQuantity) ?? 0,
-                              IncomeSum = i.IncomeLines?.Sum(x => x.IncomeSum) ?? 0
 
-                          };
 
-        return Ok(incomesDtos);
+        var mapIncome = _mapper.Map<IList<IncomeDto>>(incomes);
+        
+        return Ok(mapIncome);
     }
 
 
@@ -78,7 +69,9 @@ public class IncomeController : ControllerBase
 
         await _context.Incomes.InsertOneAsync(income);
 
-        var eventMessage = new IncomeCreateEvent
+        
+        var eventMessage = _mapper.Map<IncomeCreateEvent>(income);
+        /*var eventMessage = new IncomeCreateEvent
         {
             Id = income.Id,
             СonfirmedAt = income.СonfirmedAt,
@@ -89,22 +82,12 @@ public class IncomeController : ControllerBase
             SupplierName = income.SupplierName,
             InvoiceSum =  income.IncomeLines?.Sum(x => x.IncomeQuantity * x.PriceFob) ?? 0,
             FactSum = income.IncomeLines?.Sum(x => x.IncomeQuantity * x.PriceFob) ?? 0,
-            SeaSum = 0
-        };
+        };*/
+        
         await _publishEndpoint.Publish(eventMessage);
 
-        var result = new IncomeDto
-        {
-            Id = income.Id,
-            СonfirmedAt = income.СonfirmedAt,
-            CreatedAt = income.CreatedAt,
-            CurrencyType = income.CurrencyType,
-            IncomeName = income.IncomeName,
-            IncomeState = income.IncomeState,
-            SupplierName = income.SupplierName,
-            ProductQuantity = income.IncomeLines?.Sum(x => x.IncomeQuantity) ?? 0,
-            IncomeSum = income.IncomeLines?.Sum(x => x.IncomeSum) ?? 0
-        };
+        var result = _mapper.Map<IncomeDto>(income);
+       
         return Ok(result);
     }
 

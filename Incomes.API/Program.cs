@@ -3,6 +3,7 @@ using FluentValidation.AspNetCore;
 using Incomes.API.Common;
 using Incomes.API.Mongodb.Data;
 using System.Reflection;
+using Incomes.API.Mapper;
 using MassTransit;
 
 EntitiesConfig.Config();
@@ -19,6 +20,7 @@ builder.Services.AddMassTransit(confg =>
     });
 });
 
+builder.Services.AddAutoMapper(typeof(ApiMappingProfile));
 builder.Services.AddControllers();
 
 builder.Services.AddFluentValidation();

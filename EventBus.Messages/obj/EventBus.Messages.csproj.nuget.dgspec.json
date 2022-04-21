@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\git\\goodwill-microservices\\EventBus.Messages\\EventBus.Messages.csproj": {}
+    "C:\\git\\goodwill_microservices\\EventBus.Messages\\EventBus.Messages.csproj": {}
   },
   "projects": {
-    "C:\\git\\goodwill-microservices\\EventBus.Messages\\EventBus.Messages.csproj": {
+    "C:\\git\\goodwill_microservices\\EventBus.Messages\\EventBus.Messages.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\goodwill-microservices\\EventBus.Messages\\EventBus.Messages.csproj",
+        "projectUniqueName": "C:\\git\\goodwill_microservices\\EventBus.Messages\\EventBus.Messages.csproj",
         "projectName": "EventBus.Messages",
-        "projectPath": "C:\\git\\goodwill-microservices\\EventBus.Messages\\EventBus.Messages.csproj",
+        "projectPath": "C:\\git\\goodwill_microservices\\EventBus.Messages\\EventBus.Messages.csproj",
         "packagesPath": "C:\\Users\\Павел Пальчак\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\goodwill-microservices\\EventBus.Messages\\obj\\",
+        "outputPath": "C:\\git\\goodwill_microservices\\EventBus.Messages\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Павел Пальчак\\AppData\\Roaming\\NuGet\\NuGet.Config",

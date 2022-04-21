@@ -12,14 +12,6 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 
-builder.Services.AddMassTransit(confg =>
-{
-    confg.UsingRabbitMq((ctx, cfg) =>
-    {
-        cfg.Host("amqp://root:root@localhost:5672");
-    });
-});
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
